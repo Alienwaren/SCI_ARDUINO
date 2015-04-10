@@ -8,16 +8,19 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  message = getMessage();
   if(message.indexOf("on") >= 0)
    {
      digitalWrite(transistorPin, HIGH);
+     Serial.println("on");
      message = "";
    }else if(message.indexOf("off") >= 0)
    {
       digitalWrite(transistorPin, LOW);
+      Serial.println("off");
       message = "";
    }
-   
+   delay(1000);
 }
 String getMessage()
 {
