@@ -56,5 +56,6 @@ void generateAndPrintJson(int temperature, int humidity)
 	JsonArray& data = root.createNestedArray("data");
 	data.add(temperature);
 	data.add(humidity);
-	root.prettyPrintTo(Serial);
+	root.printTo(Serial);
+        Serial.println();
 }

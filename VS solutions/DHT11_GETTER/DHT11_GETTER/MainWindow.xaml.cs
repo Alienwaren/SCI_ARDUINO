@@ -43,7 +43,7 @@ namespace DHT11_GETTER
             base.OnClosed(e);
             reader.Dispose();
         }
-        SerialReader reader = new SerialReader("COM7", 9600); ////TODO: MOVE PORT CONF TO XML
+        SerialReader reader = new SerialReader("COM5", 9600); ////TODO: MOVE PORT CONF TO XML
 
         DispatcherTimer timerRefreshUi = new DispatcherTimer();
     }
