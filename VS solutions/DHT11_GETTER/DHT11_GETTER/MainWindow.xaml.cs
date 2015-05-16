@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Timers;
 using System.Windows.Threading;
+using System.Net;
 namespace DHT11_GETTER
 {
     /// <summary>
@@ -34,17 +35,23 @@ namespace DHT11_GETTER
             if (reader.dataReaded != null)
             {
                 _temperatureValue.Text = reader.dataReaded.temperatureValue.ToString();
-                _humidityValue.Text = reader.dataReaded.humidityTemperature.ToString(); 
+                _humidityValue.Text = reader.dataReaded.humidityTemperature.ToString();
+                WebRequest webRequest = WebRequest.Create("http://api.thingspeak.com/update?key="+apiKey+"&field1="+_temperatureValue.Text+"&field2="+_humidityValue.Text);
+                webRequest.Method = "GET";
+                WebResponse webResp = webRequest.GetResponse();
             }
+
         }
 
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
-            reader.Dispose();
+           reader.Dispose();
         }
-        SerialReader reader = new SerialReader("COM5", 9600); ////TODO: MOVE PORT CONF TO XML
+        SerialReader reader = new SerialReader("COM6", 9600); ////TODO: MOVE PORT CONF TO XML
 
         DispatcherTimer timerRefreshUi = new DispatcherTimer();
+
+        private string apiKey = "DOXOWDS1596CT2J7"; //tu wstawcie swój klucz api
     }
 }
