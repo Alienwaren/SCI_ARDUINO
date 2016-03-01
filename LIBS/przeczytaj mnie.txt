@@ -1,5 +1,0 @@
-JAK KORZYSTAC Z TEGO FOLDERU
-=================================
-1. Skopiuj te foldery (cale!) do folderu [windows] C:\Users\arduino\Documenty\Arduino\libraries LUB [*nix] /home/arduino/.arduino/libraries
-2. Zrestartuj Arduino IDE. (wszystkie okna!)
-3. Voila!
